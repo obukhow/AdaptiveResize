@@ -1,0 +1,4 @@
+#Oggetto_AdaptiveResize module definition
+app/etc/modules/Oggetto_AdaptiveResize.xml              app/etc/modules/Oggetto_AdaptiveResize.xml
+app/code/local/Oggetto/AdaptiveResize                   app/code/local/Oggetto/AdaptiveResize
+
