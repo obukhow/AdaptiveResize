@@ -5,7 +5,8 @@ Attention! For now it will work only with GD2 image library.
 
 To use adaptive resize just use standart product image helper as always, just change resize() method to adaptiveResize().
 Example
-~~~~~~
+
+~~~~~~ php
 $this->helper('catalog/image')->init($this->getProduct(), 'image')->adaptiveResize(400, 215)
 $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(TRUE)->keepAspectRatio(FALSE)->keepFrame(FALSE)->adaptiveResize(400, 300)
 //height is the same is width
