@@ -9,13 +9,13 @@ Instead of resizing and adding white frame this module will crop main part of im
 Resize examples comparing to Magento default resize
 ---------------------------------------------------
 
-**Portrait image with landscape oriented product images design
+**Portrait image with landscape oriented product images design**
 
 .. image:: http://i.imgur.com/rky8S.png
 
-**Landscape oriented image with portrait product images design
+**Landscape oriented image with portrait product images design**
 
-.. image:: http://imgur.com/Q5PMW
+.. image:: http://i.imgur.com/Q5PMW.png
 
 How to Use
 __________
