@@ -24,6 +24,7 @@ To use adaptive resize just use standart product image helper as always, just ch
 Example
 
 ::
+
 	$this->helper('catalog/image')->init($this->getProduct(), 'image')->adaptiveResize(400, 215)
 	$this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(TRUE)->keepAspectRatio(FALSE)->keepFrame(FALSE)->adaptiveResize(400, 300)
 	//height is the same is width
