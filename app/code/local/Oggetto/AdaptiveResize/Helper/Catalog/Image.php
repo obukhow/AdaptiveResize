@@ -19,7 +19,7 @@
  *
  * @category   Oggetto
  * @package    Oggetto_AdaptiveResize
- * @copyright  Copyright (C) 2011 Oggetto Web ltd (http://oggettoweb.com/)
+ * @copyright  Copyright (C) 2012 Oggetto Web ltd (http://oggettoweb.com/)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -106,6 +106,38 @@ class Oggetto_AdaptiveResize_Helper_Catalog_Image extends Mage_Catalog_Helper_Im
             $url = Mage::getDesign()->getSkinUrl($this->getPlaceholder());
         }
         return $url;
+    }
+
+    /**
+     * Init Image processor model
+     *
+     * Rewrited to change model
+     *
+     * @param Mage_Catalog_Model_Product $product       product
+     * @param string                     $attributeName attribute name
+     * @param string                     $imageFile     image file name
+     *
+     * @return \Oggetto_AdaptiveResize_Helper_Catalog_Image
+     */
+    public function init(Mage_Catalog_Model_Product $product, $attributeName, $imageFile = null)
+    {
+        $this->_reset();
+        $this->_setModel(Mage::getModel('adaptiveResize/catalog_product_image'));
+        $this->_getModel()->setDestinationSubdir($attributeName);
+        $this->setProduct($product);
+        $subdir = $this->_getModel()->getDestinationSubdir();
+        $this->setWatermark(Mage::getStoreConfig("design/watermark/{$subdir}_image"));
+        $this->setWatermarkImageOpacity(Mage::getStoreConfig("design/watermark/{$subdir}_imageOpacity"));
+        $this->setWatermarkPosition(Mage::getStoreConfig("design/watermark/{$subdir}_position"));
+        $this->setWatermarkSize(Mage::getStoreConfig("design/watermark/{$subdir}_size"));
+
+        if ($imageFile) {
+            $this->setImageFile($imageFile);
+        } else {
+            // add for work original size
+            $this->_getModel()->setBaseFile($this->getProduct()->getData($subdir));
+        }
+        return $this;
     }
 
 }

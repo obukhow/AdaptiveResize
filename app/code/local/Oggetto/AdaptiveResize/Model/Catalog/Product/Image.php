@@ -9,7 +9,7 @@
  * that is bundled with this package in the file LICENSE.txt.
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
- * 
+ *
  * DISCLAIMER
  *
  * Do not edit or add to this file if you wish to upgrade
@@ -19,7 +19,7 @@
  *
  * @category   Oggetto
  * @package    Oggetto_AdaptiveResize
- * @copyright  Copyright (C) 2011 Oggetto Web ltd (http://oggettoweb.com/)
+ * @copyright  Copyright (C) 2012 Oggetto Web ltd (http://oggettoweb.com/)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -35,8 +35,8 @@ class Oggetto_AdaptiveResize_Model_Catalog_Product_Image extends Mage_Catalog_Mo
 {
     /**
      * Adaptive Resize
-     * 
-     * @return Oggetto_AdaptiveResize_Model_Catalog_Product_Image 
+     *
+     * @return Oggetto_AdaptiveResize_Model_Catalog_Product_Image
      */
     public function adaptiveResize()
     {
@@ -45,6 +45,25 @@ class Oggetto_AdaptiveResize_Model_Catalog_Product_Image extends Mage_Catalog_Mo
         }
         $this->getImageProcessor()->adaptiveResize($this->_width, $this->_height);
         return $this;
+    }
+
+    /**
+     * Get Image Processor
+     *
+     * @return Varien_Image
+     */
+    public function getImageProcessor()
+    {
+        if( !$this->_processor ) {
+            $this->_processor = Mage::getModel('adaptiveResize/image', $this->getBaseFile());
+        }
+        $this->_processor->keepAspectRatio($this->_keepAspectRatio);
+        $this->_processor->keepFrame($this->_keepFrame);
+        $this->_processor->keepTransparency($this->_keepTransparency);
+        $this->_processor->constrainOnly($this->_constrainOnly);
+        $this->_processor->backgroundColor($this->_backgroundColor);
+        $this->_processor->quality($this->_quality);
+        return $this->_processor;
     }
 
 }
