@@ -30,3 +30,7 @@ Example
 	//height is the same is width
 	$this->helper('catalog/image')->init($this->getProduct())->constrainOnly(TRUE)->adaptiveResize(400)
 
+Special Thanks
+--------------
+
+Resize logic created by `Leon Smith <http://github.com/leonsmith>`_ <http://2ammedia.co.uk/web-design/magento-adaptive-resize-resize-to-best-fit>
