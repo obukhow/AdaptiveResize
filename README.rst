@@ -33,4 +33,5 @@ Example
 Special Thanks
 --------------
 
-Resize logic created by `Leon Smith <http://github.com/leonsmith>`_ <http://2ammedia.co.uk/web-design/magento-adaptive-resize-resize-to-best-fit>
+Resize logic created by `Leon Smith <http://github.com/leonsmith>`_ 
+http://2ammedia.co.uk/web-design/magento-adaptive-resize-resize-to-best-fit
