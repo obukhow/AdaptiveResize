@@ -1,4 +1,4 @@
-#Oggetto_AdaptiveResize module definition
-app/etc/modules/Oggetto_AdaptiveResize.xml              app/etc/modules/Oggetto_AdaptiveResize.xml
-app/code/local/Oggetto/AdaptiveResize                   app/code/local/Oggetto/AdaptiveResize
+#Bolevar_AdaptiveResize module definition
+app/etc/modules/Bolevar_AdaptiveResize.xml              app/etc/modules/Bolevar_AdaptiveResize.xml
+app/code/community/Bolevar/AdaptiveResize               app/code/community/Bolevar/AdaptiveResize
 

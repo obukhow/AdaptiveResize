@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Oggetto extension for Magento
+ * Adaptive image resize extension for Magento
  *
  * NOTICE OF LICENSE
  *
@@ -13,25 +13,25 @@
  * DISCLAIMER
  *
  * Do not edit or add to this file if you wish to upgrade
- * the Oggetto AdaptiveResize module to newer versions in the future.
- * If you wish to customize the Oggetto AdaptiveResize module for your needs
+ * the Bolevar AdaptiveResize module to newer versions in the future.
+ * If you wish to customize the Bolevar AdaptiveResize module for your needs
  * please refer to http://www.magentocommerce.com for more information.
  *
- * @category   Oggetto
- * @package    Oggetto_AdaptiveResize
- * @copyright  Copyright (C) 2012 Oggetto Web ltd (http://oggettoweb.com/)
+ * @category   Bolevar
+ * @package    Bolevar_AdaptiveResize
+ * @copyright  Copyright (C) 2012 Roomine Bolevar ltd (http://bolevar.com/)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
- * Rewrites helper to Add Adaptive Resize Method
+ * AdaptiveResize Helper
  *
- * @category   Oggetto
- * @package    Oggetto_AdaptiveResize
+ * @category   Bolevar
+ * @package    Bolevar_AdaptiveResize
  * @subpackage Helper
- * @author     Denis Obukhov <denis.obukhov@oggettoweb.com>
+ * @author     Denis Obukhov <roomine@bolevar.com>
  */
-class Oggetto_AdaptiveResize_Helper_Catalog_Image extends Mage_Catalog_Helper_Image
+class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
 {
     /**
      * Adpative resize flag
@@ -43,7 +43,7 @@ class Oggetto_AdaptiveResize_Helper_Catalog_Image extends Mage_Catalog_Helper_Im
     /**
      * Reset all previos data
      *
-     * @return Oggetto_AdaptiveResize_Helper_Catalog_Image
+     * @return Bolevar_AdaptiveResize_Helper_Image
      */
     protected function _reset()
     {
@@ -57,11 +57,17 @@ class Oggetto_AdaptiveResize_Helper_Catalog_Image extends Mage_Catalog_Helper_Im
      * @param int      $width  image width
      * @param int|null $height image height
      *
-     * @return \Oggetto_AdaptiveResize_Helper_Catalog_Image
+     * @return \Bolevar_AdaptiveResize_Helper_Image
      */
     public function adaptiveResize($width, $height = null)
     {
-        $this->_getModel()->setWidth($width)->setHeight($height);
+        $this->_getModel()
+            ->setWidth($width)
+            ->setHeight($height)
+            ->setKeepAspectRatio(true)
+            ->setKeepFrame(false)
+            ->setConstrainOnly(false);
+            ;
         $this->_scheduleAdaptiveResize = true;
         return $this;
     }
@@ -117,7 +123,7 @@ class Oggetto_AdaptiveResize_Helper_Catalog_Image extends Mage_Catalog_Helper_Im
      * @param string                     $attributeName attribute name
      * @param string                     $imageFile     image file name
      *
-     * @return \Oggetto_AdaptiveResize_Helper_Catalog_Image
+     * @return \Bolevar_AdaptiveResize_Helper_Image
      */
     public function init(Mage_Catalog_Model_Product $product, $attributeName, $imageFile = null)
     {
