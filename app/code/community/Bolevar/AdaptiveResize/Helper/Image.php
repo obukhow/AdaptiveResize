@@ -34,6 +34,13 @@
 class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
 {
     /**
+     * Crop position
+     *
+     * @var string
+     */
+    protected $_cropPosition;
+
+    /**
      * Adpative resize flag
      *
      * @var bool
@@ -48,6 +55,7 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
     protected function _reset()
     {
         $this->_scheduleAdaptiveResize = false;
+        $this->_cropPosition = 0;
         parent::_reset();
     }
 
@@ -63,12 +71,25 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
     {
         $this->_getModel()
             ->setWidth($width)
-            ->setHeight($height)
+            ->setHeight((!is_null($height)) ? $height : $width)
             ->setKeepAspectRatio(true)
             ->setKeepFrame(false)
             ->setConstrainOnly(false);
             ;
         $this->_scheduleAdaptiveResize = true;
+        return $this;
+    }
+
+    /**
+     * Set crop bosition
+     *
+     * @param string $position top, bottom or center
+     * 
+     * @return \Bolevar_AdaptiveResize_Helper_Image
+     */
+    public function setCropPosition($position)
+    {
+        $this->_cropPosition = $position;
         return $this;
     }
 
@@ -94,6 +115,10 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
                     $this->_getModel()->rotate($this->getAngle());
                 }
 
+                if ($this->_cropPosition) {
+                    $this->_getModel()->setCropPosition($this->_cropPosition);
+                }
+
                 if ($this->_scheduleResize) {
                     $this->_getModel()->resize();
                 }
@@ -109,6 +134,7 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
                 $url = $this->_getModel()->saveFile()->getUrl();
             }
         } catch (Exception $e) {
+            Mage::logException($e);
             $url = Mage::getDesign()->getSkinUrl($this->getPlaceholder());
         }
         return $url;
