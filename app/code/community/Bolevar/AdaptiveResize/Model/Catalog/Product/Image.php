@@ -62,7 +62,7 @@ class Bolevar_AdaptiveResize_Model_Catalog_Product_Image extends Mage_Catalog_Mo
             return $this;
         }
 
-        if (is_null($this->getHeight)) {
+        if (is_null($this->getHeight())) {
             $this->setHeight($this->getWidth());
         }
 
