@@ -1,0 +1,16 @@
+{
+    "name": "obukhow/adaptive-resize",
+    "description": "Adaptive imagesresize with crop for ideal proportions fit Magento plugin",
+    "type": "magento-module",
+    "homepage": "https://github.com/obukhow/AdaptiveResize",
+    "keywords": ["catalog", "image"],
+    "authors": [
+        {
+            "name": "Denis Obukhov",
+            "email": "denis.obukhov@oggettoweb.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
