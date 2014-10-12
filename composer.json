@@ -3,6 +3,7 @@
     "description": "Adaptive imagesresize with crop for ideal proportions fit Magento plugin",
     "type": "magento-module",
     "homepage": "https://github.com/obukhow/AdaptiveResize",
+    "license": "OSL-3.0",
     "keywords": ["catalog", "image"],
     "authors": [
         {
@@ -10,7 +11,7 @@
             "email": "denis.obukhov@oggettoweb.com"
         }
     ],
-    "require": {
-        "magento-hackathon/magento-composer-installer": "*"
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "Provides automatic installation of this extension"
     }
 }
