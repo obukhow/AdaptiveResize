@@ -41,14 +41,14 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
     protected $_cropPosition;
 
     /**
-     * Adpative resize flag
+     * Adaptive resize flag
      *
      * @var bool
      */
     protected $_scheduleAdaptiveResize = false;
 
     /**
-     * Reset all previos data
+     * Reset all previous data
      *
      * @return Bolevar_AdaptiveResize_Helper_Image
      */
@@ -81,7 +81,7 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
     }
 
     /**
-     * Set crop bosition
+     * Set crop position
      *
      * @param string $position top, bottom or center
      * 
@@ -94,7 +94,7 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
     }
 
     /**
-     * Return generated image url
+     * Return generated image URL
      *
      * @return string
      */
@@ -143,7 +143,7 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
     /**
      * Init Image processor model
      *
-     * Rewrited to change model
+     * Rewritten to change model
      *
      * @param Mage_Catalog_Model_Product $product       product
      * @param string                     $attributeName attribute name
