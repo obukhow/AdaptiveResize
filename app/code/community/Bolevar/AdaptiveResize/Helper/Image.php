@@ -75,7 +75,6 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
             ->setKeepAspectRatio(true)
             ->setKeepFrame(false)
             ->setConstrainOnly(false);
-            ;
         $this->_scheduleAdaptiveResize = true;
         return $this;
     }
