@@ -5,6 +5,7 @@
     "homepage": "https://github.com/obukhow/AdaptiveResize",
     "license": "OSL-3.0",
     "keywords": ["catalog", "image"],
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Denis Obukhov",
