@@ -138,7 +138,7 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
             
             if ($this->getImageFile() == $file)
             {                
-                $url = $file);
+                $url = $file;
             }
             else
             {
