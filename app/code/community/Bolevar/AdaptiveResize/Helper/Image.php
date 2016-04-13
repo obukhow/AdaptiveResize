@@ -1,6 +1,22 @@
 <?php
 
 /**
+ * Usage examples:
+ * // Mixed height / width
+ * $this->helper('adaptiveResize/image')->init($this->getProduct(), 'image')->adaptiveResize(400, 215);
+ * 
+ * // Height same as width
+ * $this->helper('adaptiveResize/image')->init($this->getProduct())->adaptiveResize(400);
+ * 
+ * // Can specify crop position as 'top', 'bottom' and 'center'. 'center' is used by default
+ * $this->helper('adaptiveResize/image')->init($this->getProduct())
+ *   ->setCropPosition('top')
+ *   ->adaptiveResize(400);
+ * 
+ * // See https://github.com/obukhow/AdaptiveResize for more information.
+ */
+
+/**
  * Adaptive image resize extension for Magento
  *
  * NOTICE OF LICENSE
@@ -33,6 +49,8 @@
  */
 class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
 {
+    protected $_hitException;
+    
     /**
      * Crop position
      *
@@ -134,7 +152,19 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
             }
         } catch (Exception $e) {
             Mage::logException($e);
-            $url = Mage::getDesign()->getSkinUrl($this->getPlaceholder());
+            
+            $file = Mage::getDesign()->getSkinUrl($this->getPlaceholder());
+            
+            if ($this->getImageFile() == $file)
+            {                
+                $url = Mage::getDesign()->getSkinUrl($this->getPlaceholder());
+            }
+            else
+            {
+                $this->setImageFile($file);
+                $url = $this->__toString();
+            }                                
+                
         }
         return $url;
     }
