@@ -1,3 +1,6 @@
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Total Downloads][ico-downloads]][link-downloads]
+
 # Magento Resize With Crop Functionality for Ideal Proportions Fit With Every Design.
 
 Instead of resizing and adding white frame this module will crop main part of image.
