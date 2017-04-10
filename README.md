@@ -1,3 +1,5 @@
+Magento 1 • [Magento 2](https://github.com/trive-digital/AdaptiveResizeM2)
+
 # Magento Resize With Crop Functionality for Ideal Proportions Fit With Every Design.
 
 Instead of resizing and adding white frame this module will crop main part of image.
