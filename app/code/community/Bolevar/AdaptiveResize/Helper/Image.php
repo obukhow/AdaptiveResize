@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Adaptive image resize extension for Magento
  *
@@ -134,7 +133,19 @@ class Bolevar_AdaptiveResize_Helper_Image extends Mage_Catalog_Helper_Image
             }
         } catch (Exception $e) {
             Mage::logException($e);
-            $url = Mage::getDesign()->getSkinUrl($this->getPlaceholder());
+            
+            $file = Mage::getDesign()->getSkinUrl($this->getPlaceholder());
+            
+            if ($this->getImageFile() == $file)
+            {                
+                $url = $file;
+            }
+            else
+            {
+                $this->setImageFile($file);
+                $url = $this->__toString();
+            }                                
+                
         }
         return $url;
     }
